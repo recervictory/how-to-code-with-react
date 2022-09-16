@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const greeting = "greeting";
+  const displayAction = false;
 
   const emojis = [
     {
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className="container">
       <h1 id={greeting}>Hello, World</h1>
-      <p>I am writing jsx</p>
+      {displayAction && <p>I am writing JSX</p>}
       <ul>
         {emojis.map((emoji) => (
           <li key={emoji.name}>
