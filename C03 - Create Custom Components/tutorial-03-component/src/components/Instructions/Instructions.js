@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import emoji from "./emoji.svg";
+import './Instructions.css';
 
 export default class Instructions extends Component {
   //* The render() method returns the JSX code that you want to display in the browser.
