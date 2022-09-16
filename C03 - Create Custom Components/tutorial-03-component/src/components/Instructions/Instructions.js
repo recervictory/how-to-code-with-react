@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import emoji from "./emoji.svg";
 import './Instructions.css';
 
-export default class Instructions extends Component {
-  //* The render() method returns the JSX code that you want to display in the browser.
-  render() {
+export default function Instructions() {
+
     return (
       <div className="instructions">
         <img alt="laughing crying emoji" src={emoji} />
         <p>Click on an emoji to view the emoji short name.</p>
       </div>
     );
-  }
+  
 }
