@@ -1,14 +1,12 @@
 import React from "react";
 import emoji from "./emoji.svg";
-import './Instructions.css';
+import "./Instructions.css";
 
-export default function Instructions() {
+const Instructions = () => (
+  <div className="instructions">
+    <img alt="laughing crying emoji" src={emoji} />
+    <p>Click on an emoji to view the emoji short name.</p>
+  </div>
+);
 
-    return (
-      <div className="instructions">
-        <img alt="laughing crying emoji" src={emoji} />
-        <p>Click on an emoji to view the emoji short name.</p>
-      </div>
-    );
-  
-}
+export default Instructions;
