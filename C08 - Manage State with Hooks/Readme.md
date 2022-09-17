@@ -1,1 +1,3 @@
 ## [How To Manage State with Hooks on React Components](https://www.digitalocean.com/community/tutorials/how-to-manage-state-with-hooks-on-react-components)
+
+Hooks are functions that let you run actions as part of the React lifecycle. Hooks are triggered either by other `actions` or by `changes in a component’s props` and are used to either create data or to trigger further changes. For example, the `useState` Hook generates` a stateful piece of data` along with a `function` for changing that piece of data and triggering a re-render. It will create a dynamic piece of code and hook into the lifecycle by triggering re-renders when the data changes. In practice, that means you can store dynamic pieces of data in variables using the useState Hook.
