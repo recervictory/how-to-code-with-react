@@ -24,32 +24,49 @@ const currencyOptions = {
   maximumFractionDigits: 2,
 };
 
-function getTotal(total) {
+function getTotal(cart) {
   // * Important:  Used as Pure function --- which gives the same outputs when given the same inputs and does not rely on a specific environment to operate. By converting the function to a pure function, you make it more reusable. You can, for example, extract it to a separate file and use it in multiple components.
+  const total = cart.reduce((totalCost, item) => totalCost + item.price, 0);
   return total.toLocaleString(undefined, currencyOptions);
 }
 
-function cartReducer(state, product) {
-  return [...state, product];
+function cartReducer(state, action) {
+  switch (action.type) {
+    case "add":
+      return [...state, action.product];
+    case "remove":
+      const productIndex = state.findIndex(
+        (item) => item.name === action.product.name
+      );
+      if (productIndex < 0) {
+        return state;
+      }
+      const update = [...state];
+      update.splice(productIndex, 1);
+      return update;
+    default:
+      return state;
+  }
 }
 
-function totalReducer(state, price) {
-    return state + price;
-}
+
 
 export default function Product() {
   const [cart, setCart] = useReducer(cartReducer, []);
-  const [total, setTotal] = useReducer(totalReducer, 0);
+  
 
   function add(product) {
-    setCart(product.name);
-    setTotal(product.price);
+    setCart({ product, type: 'add' });
+  }
+
+  function remove(product) {
+    setCart({ product, type: 'remove' });
   }
 
   return (
     <div className="wrapper">
       <div>Shopping Cart: {cart.length} total items.</div>
-      <div>Total: {getTotal(total)}</div>
+      <div>Total: {getTotal(cart)}</div>
       <div>
         {products.map((product) => (
           <div key={product.name}>
@@ -59,7 +76,7 @@ export default function Product() {
               </span>
             </div>
             <button onClick={() => add(product)}>Add</button>{" "}
-            <button>Remove</button>
+            <button onClick={() => remove(product)}>Remove</button>
           </div>
         ))}
       </div>
