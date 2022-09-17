@@ -1,7 +1,9 @@
 import "./App.css";
 
+import Product from "../Product/Projuct";
+
 function App() {
-  return <></>;
+  return <Product/>;
 }
 
 export default App;
