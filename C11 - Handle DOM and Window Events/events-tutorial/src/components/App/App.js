@@ -1,7 +1,8 @@
-import "./App.css";
+import React from 'react'
+import FileNamer from '../FileNamer/FileNamer';
 
 function App() {
-  return <></>;
+  return <FileNamer/>;
 }
 
 export default App;
