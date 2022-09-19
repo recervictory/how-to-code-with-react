@@ -1,0 +1,6 @@
+# [ How To Share State Across React Components with Context](https://www.digitalocean.com/community/tutorials/how-to-share-state-across-react-components-with-context)
+
+### Introduction
+In this tutorial, you’ll share state across **multiple components** using `React context`. React context is an interface for sharing information with other components without explicitly passing the data as `props`. This means that you can share information between a parent component and a **deeply nested child component**, or store site-wide data in a single place and access them anywhere in the application. You can even update data from nested components by providing update functions along with the data.
+
+React context is flexible enough to use as a centralized state management system for your project, or you can scope it to smaller sections of your application. With context, you can share data across the application without any additional third-party tools and with a small amount of configuration. This provides a lighter weight alternative to tools like **`Redux`**, which can help with larger applications but may require too much setup for medium-sized projects.
