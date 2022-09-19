@@ -1,14 +1,20 @@
 import Navigation from "../Navigation/Navigation";
 import SaladMaker from "../SaladMaker/SaladMaker";
+import UserContext from "../User/User";
 
-import "./App.css";
+const user = {
+  name: "Victor",
+  favorites: ["avocado", "carrot"],
+};
+
+//* UserContext is acting as a standard React component. This component will take a single prop called value.
 
 function App() {
   return (
-    <>
+    <UserContext.Provider value={user}>
       <Navigation />
-      <SaladMaker/>
-    </>
+      <SaladMaker />
+    </UserContext.Provider>
   );
 }
 
