@@ -1,8 +1,9 @@
-import React, {useContext} from "react";
+import React, { useContext, useReducer } from "react";
 import PropTypes from "prop-types";
 import { createUseStyles } from "react-jss";
-
+//* Context
 import UserContext from "../User/User";
+import { SaladContext } from "../SaladMaker/SaladMaker";
 
 const useStyles = createUseStyles({
   add: { background: "none", border: "none", cursor: "pointer" },
@@ -19,11 +20,22 @@ const useStyles = createUseStyles({
   },
 });
 
+const reducer = (key) => key + 1;
 export default function SaladItem({ image, name }) {
   const classes = useStyles();
+  const { setSalad } = useContext(SaladContext);
   const user = useContext(UserContext);
   //Todo: include method check if the salad item name present in 'user.favorites' array
   const favorite = user.favorites.includes(name);
+  const [id, updateId] = useReducer(reducer, 0);
+  function update() {
+    setSalad({
+      name,
+      id: `${name}-${id}`,
+    });
+    updateId();
+  }
+
   return (
     <div className={classes.wrapper}>
       <h3>{name}</h3>
@@ -33,7 +45,7 @@ export default function SaladItem({ image, name }) {
       >
         {favorite ? "😋" : ""}
       </span>
-      <button className={classes.add}>
+      <button className={classes.add} onClick={update}>
         <span className={classes.image} role="img" aria-label="{name}">
           {image}
         </span>
@@ -43,6 +55,6 @@ export default function SaladItem({ image, name }) {
 }
 
 SaladItem.propTypes = {
-    image: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-}
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+};
