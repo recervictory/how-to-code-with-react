@@ -1,0 +1,1 @@
+# [How To Handle Async Data Loading, Lazy Loading, and Code Splitting with React](https://www.digitalocean.com/community/tutorials/how-to-handle-async-data-loading-lazy-loading-and-code-splitting-with-react)
