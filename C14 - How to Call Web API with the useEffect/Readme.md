@@ -1,1 +1,5 @@
 # [https://www.digitalocean.com/community/tutorials/how-to-call-web-apis-with-the-useeffect-hook-in-react](https://www.digitalocean.com/community/tutorials/how-to-call-web-apis-with-the-useeffect-hook-in-react)
+
+Note: It is a common problem to accidentally rerun an API multiple times. Every time a component is removed and then remounted, you will rerun all the original data fetching. To avoid this, consider a caching method for APIs that are particularly data heavy or slow. You can use anything from `memoizing` the service calls, to caching with service workers, to a custom Hook. There are a few popular custom Hooks for caching service calls, including useSWR and react query.
+
+No matter which approach you use, be sure to consider how you will invalidate the cache because there are times where you’ll want to fetch the newest data.
