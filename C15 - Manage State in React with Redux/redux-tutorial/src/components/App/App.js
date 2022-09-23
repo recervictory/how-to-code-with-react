@@ -1,5 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+// todo: Redux App
+
+
 import "./App.css";
 
 function App() {
