@@ -4,6 +4,9 @@ import Manatee from "../Manatee/Manatee";
 import Narwhal from "../Narwhal/Narwhal";
 import Whale from "../Whale/Whale";
 
+import Beluga from "../Whale/Beluga";
+import Blue from "../Whale/Blue";
+
 import "./App.css";
 
 function App() {
@@ -31,10 +34,12 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/manatee" element={<Manatee />} />
-          <Route path="/narwhal" element={<Narwhal />} />
-          <Route path="/whale" element={<Whale />} />
-          <Route path="/whale/:type" element={<Whale />} />
+          <Route path="manatee" element={<Manatee />} />
+          <Route path="narwhal" element={<Narwhal />} />
+          <Route path="whale" element={<Whale />}>
+            <Route path="blue" element={<Blue />} />
+            <Route path="beluga" element={<Beluga />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

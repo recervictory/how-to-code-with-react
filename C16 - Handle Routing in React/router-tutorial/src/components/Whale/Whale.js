@@ -1,15 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import Beluga from "./Beluga";
-import Blue from "./Blue";
+import { Outlet } from "react-router-dom";
+
 
 export default function Whale() {
-    const { type } = useParams();
   return (
     <div>
       <h2>Whale</h2>
-      {type === "beluga" && <Beluga />}
-      {type === "blue" && <Blue />}
+      <Outlet/>
     </div>
   );
 }
