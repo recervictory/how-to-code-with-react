@@ -23,10 +23,10 @@ function App() {
               <Link to="/whale">Whale</Link>
             </li>
             <li>
-              <Link to="/whale?type=beluga">Beluga Whale</Link>
+              <Link to="/whale/beluga">Beluga Whale</Link>
             </li>
             <li>
-              <Link to="/whale?type=blue">Blue Whale</Link>
+              <Link to="/whale/blue">Blue Whale</Link>
             </li>
           </ul>
         </nav>
@@ -34,6 +34,7 @@ function App() {
           <Route path="/manatee" element={<Manatee />} />
           <Route path="/narwhal" element={<Narwhal />} />
           <Route path="/whale" element={<Whale />} />
+          <Route path="/whale/:type" element={<Whale />} />
         </Routes>
       </BrowserRouter>
     </div>
