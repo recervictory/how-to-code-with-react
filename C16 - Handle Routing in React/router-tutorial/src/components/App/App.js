@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Manatee from "../Manatee/Manatee";
 import Narwhal from "../Narwhal/Narwhal";
 import Whale from "../Whale/Whale";
@@ -22,19 +22,19 @@ function App() {
             <li>
               <Link to="/whale">Whale</Link>
             </li>
+            <li>
+              <Link to="/whale?type=beluga">Beluga Whale</Link>
+            </li>
+            <li>
+              <Link to="/whale?type=blue">Blue Whale</Link>
+            </li>
           </ul>
         </nav>
-        <Switch>
-          <Route path="/manatee">
-            <Manatee />
-          </Route>
-          <Route path="/narwhal">
-            <Narwhal />
-          </Route>
-          <Route path="/whale">
-            <Whale />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/manatee" element={<Manatee />} />
+          <Route path="/narwhal" element={<Narwhal />} />
+          <Route path="/whale" element={<Whale />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
